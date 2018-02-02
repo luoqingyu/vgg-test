@@ -6,6 +6,7 @@
 3、创建一个文件并保存到指定目录
 '''
 import os
+import  chardet
 import  random
 import shutil
 import PIL.Image as Image
@@ -31,13 +32,13 @@ def mkdir(path):
         # 创建目录操作函数
         os.makedirs(path)
 
-        print path
-        print  ' 创建成功'
+        print (path)
+        print ( ' 创建成功')
         return True
     else:
         # 如果目录存在则不创建，并提示目录已存在
-        print path
-        print  ' 目录已存在'
+        print (path)
+        print  (' 目录已存在')
         return False
 
 
@@ -50,7 +51,6 @@ def eachFile(filepath):
     hero_dir=[]
     danzi_list = []
     for allDir in pathDir:
-        allDir =unicode(allDir, 'utf-8')
         child = os.path.join('%s%s' % (filepath, allDir))
         #print child.decode('gbk') # .decode('gbk')是解决中文显示乱码问题
         hero_dir.append(child)
@@ -73,12 +73,12 @@ def eachFile1(filepath):
 
 
 if __name__ == '__main__':
-    filePath,danzi_list = eachFile("/home/lqy/project/OCR/ocr_cnn_lstm_ctc/ocr_cnn_lstm_ctc/data/danzi/")
+    filePath,danzi_list = eachFile("/home/lqy/project/OCR/ocr_cnn_lstm_ctc/data/danzi/")
     for i in danzi_list:
-        print  i
-        path  = '/home/lqy/project/OCR/ocr_cnn_lstm_ctc/ocr_cnn_lstm_ctc/data/danzi-train/' +i
+        print  (i)
+        path  = '/home/lqy/project/OCR/ocr_cnn_lstm_ctc/data/danzi-train/' +i
         mkdir(path)
-        path = '/home/lqy/project/OCR/ocr_cnn_lstm_ctc/ocr_cnn_lstm_ctc/data/danzi-test/' + i
+        path = '/home/lqy/project/OCR/ocr_cnn_lstm_ctc/data/danzi-test/' + i
         mkdir(path)
 
     train_pic_dir=[]
