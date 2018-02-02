@@ -44,7 +44,7 @@ class GenerateImages:
 
 
     def creat_pic_each_file(self,f,file):
-        for num in range(5):
+        for num in range(500):
             toImage = Image.new('RGBA', (256, 32), (255, 255, 255))
             name = ''
             for i in range(self.max_word_num):
@@ -108,17 +108,17 @@ class GenerateImages:
         f = open(txtName, "w")
         for file1 in range(int(50000 / 25000)):
             self.mkdir(self.out_path+str(file1))
-            for file2 in range(5):
+            for file2 in range(500):
                 self.mkdir(self.out_path+str(file1)+'/'+str(file2))
                 self.creat_pic_each_file(f=f,file=str(file1)+'/'+str(file2)+'/')
         f.close()
 
 if __name__ == '__main__':
-    x= GenerateImages(src_path='../../data/danzi-test/',
-                      out_path='../../data/test/',
+    x= GenerateImages(src_path='../../data/danzi-train/',
+                      out_path='../../data/train/',
                       if_random_space = True,#是否随机间隔
                       random_space=[-5,5],#随机间隔
                       space=0)              #固定间隔
-    x.creatPic(num=100)                     #生成数目
+    x.creatPic(num=25000)                     #生成数目
 
 
