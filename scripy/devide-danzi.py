@@ -73,12 +73,12 @@ def eachFile1(filepath):
 
 
 if __name__ == '__main__':
-    filePath,danzi_list = eachFile("/home/lqy/project/OCR/ocr_cnn_lstm_ctc/data/danzi/")
+    filePath,danzi_list = eachFile("../../data/danzi/")
     for i in danzi_list:
         print  (i)
-        path  = '/home/lqy/project/OCR/ocr_cnn_lstm_ctc/data/danzi-train/' +i
+        path  = '../../data/danzi-train/' +i
         mkdir(path)
-        path = '/home/lqy/project/OCR/ocr_cnn_lstm_ctc/data/danzi-test/' + i
+        path = '../../data/danzi-test/' + i
         mkdir(path)
 
     train_pic_dir=[]

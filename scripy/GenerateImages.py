@@ -12,6 +12,7 @@ class GenerateImages:
         self.random_space = random_space
         self.space=space
         self.img_list=self.get_imgList()
+        self.mkdir(out_path)
 
     def get_imgList(self):
         list = []
@@ -113,10 +114,10 @@ class GenerateImages:
         f.close()
 
 if __name__ == '__main__':
-    x= GenerateImages(src_path='/home/lqy/project/OCR/ocr_cnn_lstm_ctc/data/danzi-test/',
-                      out_path='/home/lqy/project/OCR/ocr_cnn_lstm_ctc/data/test/',
+    x= GenerateImages(src_path='../../data/danzi-test/',
+                      out_path='../../data/test/',
                       if_random_space = True,#是否随机间隔
-                      random_space=[-15,15],#随机间隔
+                      random_space=[-5,5],#随机间隔
                       space=0)              #固定间隔
     x.creatPic(num=100)                     #生成数目
 
