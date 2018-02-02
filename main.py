@@ -11,7 +11,7 @@ from skimage import transform
 import cnn_lstm_otc_ocr
 import utils
 import helper
-os.environ["CUDA_VISIBLE_DEVICES"] = "2"
+#os.environ["CUDA_VISIBLE_DEVICES"] = "2"
 #import matplotlib.pyplot as plt
 FLAGS = utils.FLAGS
 

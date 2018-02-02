@@ -2,6 +2,7 @@
 import  os
 import  random
 import PIL.Image as Image
+import datetime
 class GenerateImages:
     def __init__(self,pic_size=['32','256'],max_word_num=8,src_path='',out_path='',if_random_space='False',random_space=[0,0],space=0):
         self.pic_size = pic_size
@@ -44,7 +45,7 @@ class GenerateImages:
 
 
     def creat_pic_each_file(self,f,file):
-        for num in range(50):
+        for num in range(500):
             toImage = Image.new('RGBA', (256, 32), (255, 255, 255))
             name = ''
             for i in range(self.max_word_num):
@@ -60,7 +61,7 @@ class GenerateImages:
                     if (self.if_random_space==True):
                         self.space = random.randrange(self.random_space[0],self.random_space[1])
                         #print (self.space)
-                    print (self.space)
+
                     toImage.paste(fromImage, ((i) * 32+(self.space), 0))
             name=name.replace('/','')                    #去除不可用的符号
             name = name.replace('.', '')
@@ -106,7 +107,7 @@ class GenerateImages:
 
         txtName = self.out_path+"word_list.txt"
         f = open(txtName, "w")
-        for file1 in range(int(50000 / 25000)):
+        for file1 in range(int(100000 / 25000)):
             self.mkdir(self.out_path+str(file1))
             for file2 in range(500):
                 self.mkdir(self.out_path+str(file1)+'/'+str(file2))
@@ -114,11 +115,18 @@ class GenerateImages:
         f.close()
 
 if __name__ == '__main__':
-    x= GenerateImages(src_path='../../data/danzi-test/',
-                      out_path='../../data/test/',
+    start = datetime.datetime.now()
+    x= GenerateImages(src_path='../../data/danzi-train/',
+                      out_path='../../data/train/',
                       if_random_space = True,#是否随机间隔
                       random_space=[-5,5],#随机间隔
                       space=0)              #固定间隔
+<<<<<<< HEAD
     x.creatPic(num=25000)                     #生成数目
+=======
+    x.creatPic(num=100)                     #生成数目
+    end = datetime.datetime.now()
+    print(end - start)
+>>>>>>> ce8fd0d31cd86dbc9421e054613cf2d5a0326a9e
 
 

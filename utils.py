@@ -13,13 +13,13 @@ maxPrintLen = 100
 
 tf.app.flags.DEFINE_string('checkpoint_dir', '../checkpoint/lstm_3', 'the checkpoint dir')
 tf.app.flags.DEFINE_integer('rnn_layers', 3 ,'number of rnn layers')
-tf.app.flags.DEFINE_string('gpu_idex', '0' ,'index of gpu' )
+tf.app.flags.DEFINE_string('gpu_idex', '2' ,'index of gpu' )
 tf.app.flags.DEFINE_string('model', 'lstm' , 'name of the rnn part')
 tf.app.flags.DEFINE_string('log_dir', '../log/lstm_3', 'the logging dir')
 
 
 tf.app.flags.DEFINE_string('infer_dir', '../data/infer/', 'the infer data dir')
-tf.app.flags.DEFINE_boolean('restore',True, 'whether to restore from the latest checkpoint')
+tf.app.flags.DEFINE_boolean('restore',False, 'whether to restore from the latest checkpoint')
 tf.app.flags.DEFINE_float('initial_learning_rate', 1e-3, 'inital lr')
 tf.app.flags.DEFINE_integer('image_height', 32, 'image height')
 tf.app.flags.DEFINE_integer('image_width', 256, 'image width')
