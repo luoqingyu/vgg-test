@@ -45,7 +45,7 @@ class GenerateImages:
 
 
     def creat_pic_each_file(self,f,file):
-        for num in range(5):
+        for num in range(500):
             toImage = Image.new('RGBA', (256, 32), (255, 255, 255))
             name = ''
             for i in range(self.max_word_num):
@@ -107,7 +107,7 @@ class GenerateImages:
 
         txtName = self.out_path+"word_list.txt"
         f = open(txtName, "w")
-        for file1 in range(int(50000 / 25000)):
+        for file1 in range(int(100000 / 25000)):
             self.mkdir(self.out_path+str(file1))
             for file2 in range(500):
                 self.mkdir(self.out_path+str(file1)+'/'+str(file2))
