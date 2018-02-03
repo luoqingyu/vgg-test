@@ -45,7 +45,7 @@ class GenerateImages:
 
 
     def creat_pic_each_file(self,f,file):
-        for num in range(500):
+        for num in range(5):
             toImage = Image.new('RGBA', (256, 32), (255, 255, 255))
             name = ''
             for i in range(self.max_word_num):
@@ -121,7 +121,7 @@ if __name__ == '__main__':
                       if_random_space = True,#是否随机间隔
                       random_space=[-5,5],#随机间隔
                       space=0)              #固定间隔
-    x.creatPic(num=100)                     #生成数目
+    x.creatPic(num=200)                     #生成数目
     end = datetime.datetime.now()
     print(end - start)
 
