@@ -1,7 +1,7 @@
 # -*- coding: UTF-8 -*-
 import  chardet
 import os
-path = "./danzi"
+path = "../data/danzi-test"
 #制作字典映射
 dic = {}
 for name in os.listdir(path):
