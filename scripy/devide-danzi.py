@@ -96,6 +96,11 @@ if __name__ == '__main__':
             fromImage = Image.open(k)
             k=k.replace('danzi','danzi-test')
             fromImage.save(k)
+    print('ok')
+
+
+
+
 
 
 
