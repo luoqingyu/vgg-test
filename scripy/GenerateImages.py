@@ -113,7 +113,7 @@ class GenerateImages:
         f = open(txtName, "w")
         for file1 in range(int(100000 / 25000)):
             self.mkdir(self.out_path+str(file1))
-            for file2 in range(500):
+            for file2 in range(5):
                 self.mkdir(self.out_path+str(file1)+'/'+str(file2))
                 self.creat_pic_each_file(f=f,file=str(file1)+'/'+str(file2)+'/')
         f.close()
