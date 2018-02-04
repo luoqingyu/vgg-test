@@ -36,8 +36,8 @@ tf.app.flags.DEFINE_float('beta2', 0.999, 'adam parameter beta2')
 tf.app.flags.DEFINE_integer('decay_steps', 10000, 'the lr decay_step for optimizer')
 tf.app.flags.DEFINE_float('momentum', 0.9, 'the momentum')
 
-tf.app.flags.DEFINE_string('train_dir','../data/train/', 'the train data dir')
-tf.app.flags.DEFINE_string('val_dir','../data/test/', 'the val data dir')
+tf.app.flags.DEFINE_string('train_dir','/home/work/data/annotation_train.txt', 'the train data dir')
+tf.app.flags.DEFINE_string('val_dir','/home/work/data/annotation_test.txt', 'the val data dir')
 
 tf.app.flags.DEFINE_string('mode', 'train', 'train, val or infer')
 tf.app.flags.DEFINE_integer('num_gpus', 1, 'num of gpus')
@@ -75,10 +75,10 @@ class DataIterator:
         if istrain:
             i=0
 
-            fa = open("../data/train/word_list.txt", 'r')
+            fa = open(data_dir, 'r')
             for line in fa.readlines():
-                img_path = '../data/train/'+line.split(" ")[-2]
-                img_label = line.split(" ")[-1]
+                img_path =  "/home/work/data" + u.split(" ")[0][1:]
+                img_label = img_path.split("_")[1]
                 img_label=img_label.replace('\n','')
 
                 if os.path.exists(img_path):
@@ -92,11 +92,10 @@ class DataIterator:
 
         else:
             i = 0
-            fa = open("../data/test/word_list.txt", 'r')
+            fa = open(data_dir, 'r')
             for line in fa.readlines():
-                img_path = '../data/test/' + line.split(" ")[-2]
-                img_label = line.split(" ")[-1]
-                print(img_label)
+                img_path =  "/home/work/data" + u.split(" ")[0][1:]
+                img_label = img_path.split("_")[1]
                 img_label = img_label.replace('\n', '')
                 if os.path.exists(img_path):
                     try:
