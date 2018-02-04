@@ -80,6 +80,7 @@ class DataIterator:
             for u in fa.readlines():
                 i=i+1
                 if (i<100):
+                    print(u)
                     img_path =  "/home/work/data" + u.split(" ")[0][1:]
                     img_label = img_path.split("_")[1]
                     img_label=img_label.replace('\n','')
