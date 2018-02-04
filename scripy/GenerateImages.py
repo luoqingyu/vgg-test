@@ -45,11 +45,11 @@ class GenerateImages:
 
 
     def creat_pic_each_file(self,f,file):
-<<<<<<< HEAD
-        for num in range(50):
-=======
+
+
+
         for num in range(5):
->>>>>>> 340052870d1b0336bf6dd596999bf15b5dea8e4e
+
             toImage = Image.new('RGBA', (256, 32), (255, 255, 255))
             name = ''
             for i in range(self.max_word_num):
@@ -120,17 +120,17 @@ class GenerateImages:
 
 if __name__ == '__main__':
     start = datetime.datetime.now()
-    x= GenerateImages(src_path='../../data/danzi-test/',
-                      out_path='../../data/test/',
+    x= GenerateImages(src_path='../../data/danzi-train/',
+                      out_path='../../data/train/',
                       if_random_space = True,#是否随机间隔
                       random_space=[-5,5],#随机间隔
                       space=0)              #固定间隔
-<<<<<<< HEAD
+
     x.creatPic(num=25000)                     #生成数目
     x.creatPic(num=100)                     #生成数目
-=======
+
     x.creatPic(num=200)                     #生成数目
->>>>>>> 340052870d1b0336bf6dd596999bf15b5dea8e4e
+
     end = datetime.datetime.now()
     print(end - start)
 
