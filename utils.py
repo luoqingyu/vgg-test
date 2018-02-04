@@ -94,8 +94,8 @@ class DataIterator:
                         except:
                                 print ('666')    
                                 continue
-                    print(img_path)
-                    print(img_label)
+                    print("path:",img_path)
+                    print("label:",img_label)
                     
 
         else:
