@@ -78,34 +78,39 @@ class DataIterator:
 
             fa = open(data_dir, 'r')
             for u in fa.readlines():
-                img_path =  "/home/work/data" + u.split(" ")[0][1:]
-                img_label = img_path.split("_")[1]
-                img_label=img_label.replace('\n','')
+                i++
+                if (i<100):
+                    img_path =  "/home/work/data" + u.split(" ")[0][1:]
+                    img_label = img_path.split("_")[1]
+                    img_label=img_label.replace('\n','')
 
-                if os.path.exists(img_path):
-                    try:
-                        code = [encode_maps[c] for c in list(img_label)]
-                        self.image.append(img_path)
-                        self.labels.append(code)
+                    if os.path.exists(img_path):
+                        try:
+                            code = [encode_maps[c] for c in list(img_label)]
+                            self.image.append(img_path)
+                            self.labels.append(code)
 
-                    except:
+                        except:
+                                print ('666')    
                                 continue
 
         else:
             i = 0
             fa = open(data_dir, 'r')
             for u in fa.readlines():
-                img_path =  "/home/work/data" + u.split(" ")[0][1:]
-                img_label = img_path.split("_")[1]
-                img_label = img_label.replace('\n', '')
-                if os.path.exists(img_path):
-                    try:
-                        code = [encode_maps[c] for c in list(img_label)]
-                        self.image.append(img_path)
-                        self.labels.append(code)
-                    except:
-                            print('333')    
-                            continue
+                i++
+                i(i<100)
+                    img_path =  "/home/work/data" + u.split(" ")[0][1:]
+                    img_label = img_path.split("_")[1]
+                    img_label = img_label.replace('\n', '')
+                    if os.path.exists(img_path):
+                        try:
+                            code = [encode_maps[c] for c in list(img_label)]
+                            self.image.append(img_path)
+                            self.labels.append(code)
+                        except:
+                                print('333')    
+                                continue
 
 
 
