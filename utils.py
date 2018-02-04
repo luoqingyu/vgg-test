@@ -77,7 +77,7 @@ class DataIterator:
             i=0
 
             fa = open(data_dir, 'r')
-            for line in fa.readlines():
+            for u in fa.readlines():
                 img_path =  "/home/work/data" + u.split(" ")[0][1:]
                 img_label = img_path.split("_")[1]
                 img_label=img_label.replace('\n','')
@@ -94,7 +94,7 @@ class DataIterator:
         else:
             i = 0
             fa = open(data_dir, 'r')
-            for line in fa.readlines():
+            for u in fa.readlines():
                 img_path =  "/home/work/data" + u.split(" ")[0][1:]
                 img_label = img_path.split("_")[1]
                 img_label = img_label.replace('\n', '')
