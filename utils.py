@@ -84,7 +84,7 @@ class DataIterator:
                     img_path =  "/home/work/data" + u.split(" ")[0][1:]
                     img_label = img_path.split("_")[1]
                     img_label=img_label.replace('\n','')
-
+                    
                     if os.path.exists(img_path):
                         try:
                             code = [encode_maps[c] for c in list(img_label)]
@@ -94,6 +94,9 @@ class DataIterator:
                         except:
                                 print ('666')    
                                 continue
+                    print(img_path)
+                    print(img_label)
+                    
 
         else:
             i = 0
