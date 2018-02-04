@@ -52,8 +52,9 @@ decode_maps = {}
 with open("./dic.txt") as f:
     i = 1
     for line in f.readlines():
+        print('999')
         line = line.replace('\n','')
-
+        
         #line[1] = int(line[1])
         
         encode_maps[line] = i
