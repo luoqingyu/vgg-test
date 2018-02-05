@@ -39,15 +39,13 @@ def train(train_dir=None, val_dir=None, mode='train'):
 
     def _parse_function(filename, label):
         image_string = tf.read_file(filename)
-        # print  (type(image_string))
-        # print (image_string.shape)
-        image_decoded = tf.image.decode_image(image_string, channels=1)
-        resized = tf.image.resize_images(image_decoded, [32, 256], method=0)
-        # print  (type(image_decoded))
-        # print (image_decoded.shape)
-        # image_resized = tf.image.resize_images(image_decoded, 3)
-        image_decoded =resized/255
-        return image_decoded, label
+        image_decoded = tf.image.decode_png(image_string, channels=1)
+        image_decoded = image_decoded / 255
+        image_resize = tf.image.resize_images(image_decoded,[32,tf.shape(image_decoded)[1]])
+        add = tf.zeros((32, 256-tf.shape(image_resize)[1],1))+image_decoded[-1][-1]
+        im =tf.concat( [image_resize,add],1)
+        print(im.shape)
+        return im, label
 
     dataset = tf.data.Dataset.from_tensor_slices((filename, label))
     dataset = dataset.map(_parse_function)
@@ -133,8 +131,7 @@ def train(train_dir=None, val_dir=None, mode='train'):
                 #print  num_batches_per_epoch
                 #print  '999'
                 #print  num_batches_per_epoch
-                for cur_batch in range(100):
-                    print ('55555')
+                for cur_batch in range(num_batches_per_epoch):
                     if (cur_batch  ) % 10 == 1:
                         print('batch', cur_batch, ': time', time.time() - batch_time)
                     batch_time = time.time()
