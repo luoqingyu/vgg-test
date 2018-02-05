@@ -44,9 +44,8 @@ def train(train_dir=None, val_dir=None, mode='train'):
         image_resize = tf.image.resize_images(image_decoded,[32,tf.shape(image_decoded)[1]])
         add = tf.zeros((32, 256-tf.shape(image_resize)[1],1))+image_decoded[-1][-1]
         im =tf.concat( [image_resize,add],1)
-        print(im.shape)
-        return im, label
-
+        labels=np.array(label)
+        return im, labels
     dataset = tf.data.Dataset.from_tensor_slices((filename, label))
     dataset = dataset.map(_parse_function)
     dataset = dataset.repeat()  # 不带参数为无限个epoch
