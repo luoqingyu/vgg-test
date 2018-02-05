@@ -45,8 +45,7 @@ def train(train_dir=None, val_dir=None, mode='train'):
         add = tf.zeros((32, 256-tf.shape(image_resize)[1],1))+image_decoded[-1][-1]
         im =tf.concat( [image_resize,add],1)
         print(im.shape)
-        label_numpy = label.eval
-        return im, label_numpy
+        return im, label
 
     dataset = tf.data.Dataset.from_tensor_slices((filename, label))
     dataset = dataset.map(_parse_function)
