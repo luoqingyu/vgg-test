@@ -131,7 +131,7 @@ def train(train_dir=None, val_dir=None, mode='train'):
                 #print  num_batches_per_epoch
                 #print  '999'
                 #print  num_batches_per_epoch
-                for cur_batch in range(num_batches_per_epoch):
+                for cur_batch in range(1000):
                     if (cur_batch  ) % 10 == 1:
                         print('batch', cur_batch, ': time', time.time() - batch_time)
                     batch_time = time.time()
